@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "newLine": "lf",
+    "noEmitOnError": true,
+
+    /* Basic Options */
+    "target": "es6",
+    "module": "commonjs",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./lib",
+    "removeComments": true,
+    "downlevelIteration": true,
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+
+    /* Additional Checks */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "types": [
+      "jest"
+    ],
+    "esModuleInterop": true,
+
+    /* Source Map Options */
+    "inlineSources": true
+  },
+  "include": [
+    "src/**/*.ts",
+  ],
+  "exclude": [
+    "src/**/*.test.ts",
+  ]
+}

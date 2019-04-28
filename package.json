@@ -1,0 +1,50 @@
+{
+  "name": "@minofrk/xelto-diagram-canvas",
+  "version": "0.0.1",
+  "description": "An implementation of <xelto-diagram> in TypeScript.",
+  "keywords": [
+    "custom-elements",
+    "web-components",
+    "xelto",
+    "diagram"
+  ],
+  "homepage": "https://github.com/minofrk/xelto-diagram-canvas.js",
+  "bugs": {
+    "url": "https://github.com/minofrk/xelto-diagram-canvas.js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minofrk/xelto-diagram-canvas.js.git"
+  },
+  "license": "MIT",
+  "author": "古城みの <minofrk@gmail.com>",
+  "files": [
+    "umd",
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc && webpack",
+    "clean": "rimraf lib umd coverage",
+    "demo": "webpack-dev-server --hot --config demo/webpack.config.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "jest": "^24.7.1",
+    "license-webpack-plugin": "^2.1.1",
+    "rimraf": "^2.6.3",
+    "source-map-loader": "^0.2.4",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^5.4.4",
+    "typescript": "~3.4.5",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-common-shake": "^2.1.0",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "dependencies": {
+    "io-ts": "^1.8.5",
+    "lit-html": "^1.0.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "config:base",
+    ":unpublishSafe",
+    ":prNotPending",
+    "helpers:disableTypesNodeMajor"
+  ],
+  "labels": [
+    "renovate"
+  ],
+  "rangeStrategy": "bump"
+}

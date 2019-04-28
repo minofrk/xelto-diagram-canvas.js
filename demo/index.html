@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            pre {
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <pre>
+>arxe (   ) 
+ sorn (   ) 
+  __1___2___3___4___5___6___7__
+v| rav nen pin mir ket lin len
+e| din rez kun mat lax jil tan
+s| 
+t|             tem
+b| 
+i| pal ful mik fav zan gil ruj
+p| dyu lis mel ser dia vio ral
+        </pre>
+        <xelto-diagram>
+            {
+                "sast": "arxe",
+                "arxe": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "sorn": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "ele": [
+                    ["rav", "nen", "pin", "mir", "ket", "lin", "len"],
+                    ["din", "rez", "kun", "mat", "lax", "jil", "tan"],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null, "tem",  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    ["pal", "ful", "mik", "fav", "zan", "gil", "ruj"],
+                    ["dyu", "lis", "mel", "ser", "dia", "vio", "ral"]
+                ],
+                "korol": []
+            }
+        </xelto-diagram>
+        <xelto-diagram reversed>
+            {
+                "sast": "arxe",
+                "arxe": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "sorn": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "ele": [
+                    ["rav", "nen", "pin", "mir", "ket", "lin", "len"],
+                    ["din", "rez", "kun", "mat", "lax", "jil", "tan"],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null, "tem",  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    ["pal", "ful", "mik", "fav", "zan", "gil", "ruj"],
+                    ["dyu", "lis", "mel", "ser", "dia", "vio", "ral"]
+                ],
+                "korol": []
+            }
+        </xelto-diagram>
+
+        <hr>
+
+        <pre>
+>arxe (   ) 
+ sorn (   ) 
+  __1___2___3___4___5___6___7__
+v| 
+e|     REZ
+s| 
+t|             TEM
+b| 
+i|                         ruj
+p|                 dia
+        </pre>
+        <xelto-diagram>
+            {
+                "sast": "arxe",
+                "arxe": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "sorn": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "ele": [
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null, "rez",  null,  null,  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null, "tem",  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null, "ruj"],
+                    [ null,  null,  null,  null, "dia",  null,  null]
+                ],
+                "korol": ["rez", "tem"]
+            }
+        </xelto-diagram>
+        <xelto-diagram reversed>
+            {
+                "sast": "arxe",
+                "arxe": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "sorn": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "ele": [
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null, "rez",  null,  null,  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null, "tem",  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null, "ruj"],
+                    [ null,  null,  null,  null, "dia",  null,  null]
+                ],
+                "korol": ["rez", "tem"]
+            }
+        </xelto-diagram>
+
+        <hr>
+
+        <pre>
+ arxe (len) kun rez
+>sorn (ral) pal ful ... vio
+  __1___2___3___4___5___6___7__
+v| rav nen pin mir ket lin
+e| din         mat lax jil tan
+s| 
+t| 
+b| tem
+i| 
+p| 
+        </pre>
+        <xelto-diagram>
+            {
+                "sast": "sorn",
+                "arxe": {
+                    "txifol": ["rez", "kun"],
+                    "evol": "len"
+                },
+                "sorn": {
+                    "txifol": ["pal", "ful", "mik", "fav", "zan", "gil", "ruj", "dyu", "lis", "mel", "ser", "dia", "vio"],
+                    "evol": "ral"
+                },
+                "ele": [
+                    ["rav", "nen", "pin", "mir", "ket", "lin",  null],
+                    ["din",  null,  null, "mat", "lax", "jil", "tan"],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    ["tem",  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null]
+                ],
+                "korol": []
+            }
+        </xelto-diagram>
+        <xelto-diagram reversed>
+            {
+                "sast": "sorn",
+                "arxe": {
+                    "txifol": ["rez", "kun"],
+                    "evol": "len"
+                },
+                "sorn": {
+                    "txifol": ["pal", "ful", "mik", "fav", "zan", "gil", "ruj", "dyu", "lis", "mel", "ser", "dia", "vio"],
+                    "evol": "ral"
+                },
+                "ele": [
+                    ["rav", "nen", "pin", "mir", "ket", "lin",  null],
+                    ["din",  null,  null, "mat", "lax", "jil", "tan"],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    ["tem",  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null]
+                ],
+                "korol": []
+            }
+        </xelto-diagram>
+
+        <hr>
+
+        <p>不正な局面図の例</p>
+        <xelto-diagram>
+            {
+                "sast": "arxe",
+                "arxe": {
+                    "txifol": []
+                    "evol": null
+                },
+                "sorn": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "ele": [
+                    ["rav", "nen", "pin", "mir", "ket", "lin", "len"],
+                    ["din", "rez", "kun", "mat", "lax", "jil", "tan"],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null, "tem",  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    ["pal", "ful", "mik", "fav", "zan", "gil", "ruj"],
+                    ["dyu", "lis", "mel", "ser", "dia", "vio", "ral"]
+                ],
+                "korol": []
+            }
+        </xelto-diagram>
+        <xelto-diagram reversed>
+            {
+                "sast": "arxe",
+                "arxe": {
+                    "txifol": []
+                    "evol": null
+                },
+                "sorn": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "ele": [
+                    ["rav", "nen", "pin", "mir", "ket", "lin", "len"],
+                    ["din", "rez", "kun", "mat", "lax", "jil", "tan"],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null, "tem",  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    ["pal", "ful", "mik", "fav", "zan", "gil", "ruj"],
+                    ["dyu", "lis", "mel", "ser", "dia", "vio", "ral"]
+                ],
+                "korol": []
+            }
+        </xelto-diagram>
+
+        <hr>
+
+        <p>※ inje_arnant フォントがインストールされているとフォントが変化します。</p>
+        <pre>
+>arxe (   ) 
+ sorn (   ) 
+  __1___2___3___4___5___6___7__
+v| rav nen pin mir ket lin len
+e| din rez kun mat lax jil tan
+s| 
+t|             tem
+b| 
+i| pal ful mik fav zan gil ruj
+p| dyu lis mel ser dia vio ral
+        </pre>
+        <xelto-diagram style="font-family: inje_arnant">
+            {
+                "sast": "arxe",
+                "arxe": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "sorn": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "ele": [
+                    ["rav", "nen", "pin", "mir", "ket", "lin", "len"],
+                    ["din", "rez", "kun", "mat", "lax", "jil", "tan"],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null, "tem",  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    ["pal", "ful", "mik", "fav", "zan", "gil", "ruj"],
+                    ["dyu", "lis", "mel", "ser", "dia", "vio", "ral"]
+                ],
+                "korol": []
+            }
+        </xelto-diagram>
+
+        <hr>
+
+        <pre>
+>arxe (   ) 
+ sorn (   ) 
+  __1___2___3___4___5___6___7__
+v| rav nen pin mir ket lin len
+e| din rez kun mat lax jil tan
+s| 
+t|             tem
+b| 
+i| pal ful mik fav zan gil ruj
+p| dyu lis mel ser dia vio ral
+        </pre>
+        <xelto-diagram style="width: 720px; height: 480px">
+            {
+                "sast": "arxe",
+                "arxe": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "sorn": {
+                    "txifol": [],
+                    "evol": null
+                },
+                "ele": [
+                    ["rav", "nen", "pin", "mir", "ket", "lin", "len"],
+                    ["din", "rez", "kun", "mat", "lax", "jil", "tan"],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    [ null,  null,  null, "tem",  null,  null,  null],
+                    [ null,  null,  null,  null,  null,  null,  null],
+                    ["pal", "ful", "mik", "fav", "zan", "gil", "ruj"],
+                    ["dyu", "lis", "mel", "ser", "dia", "vio", "ral"]
+                ],
+                "korol": []
+            }
+        </xelto-diagram>
+
+        <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.2.10/webcomponents-loader.js" integrity="sha256-Ao3dDPJ8Vd/wf6kjL2MlHNo8vYEeLyvDg8k0njnNS7Y=" crossorigin="anonymous"></script>
+
+        <script src="./xelto-diagram-canvas.js"></script>
+
+        <script>
+            customElements.define('xelto-diagram', XeltoDiagramCanvas);
+
+            customElements.whenDefined('xelto-diagram').then(() => {
+                Array.from(document.querySelectorAll('xelto-diagram')).forEach(x => x.refresh());
+            });
+        </script>
+    </body>
+</html>
