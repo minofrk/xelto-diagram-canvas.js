@@ -30,7 +30,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.12",
+    "@types/jest": "^24.0.13",
     "jest": "^24.8.0",
     "license-webpack-plugin": "^2.1.1",
     "rimraf": "^2.6.3",
