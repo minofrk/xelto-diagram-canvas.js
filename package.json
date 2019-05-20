@@ -44,7 +44,7 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
-    "io-ts": "^1.8.5",
+    "io-ts": "^1.8.6",
     "lit-html": "^1.0.0"
   }
 }
