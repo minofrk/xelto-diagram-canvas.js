@@ -45,6 +45,6 @@
   },
   "dependencies": {
     "io-ts": "^1.8.6",
-    "lit-html": "^1.0.0"
+    "lit-html": "^1.1.0"
   }
 }
