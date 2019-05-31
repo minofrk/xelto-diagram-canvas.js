@@ -1,6 +1,6 @@
 import PrivateMap from './private-map';
 import { RenderingOptions } from '../types';
-import cloneState from './clone-state';
+import cloneDeep from 'lodash.clonedeep';
 import { printDiagram, printErrorDiagram } from '../diagram';
 import defaultFontFamily from '../default-font-family';
 import renderTemplate from './render-template';
@@ -46,7 +46,7 @@ export default class XeltoDiagramCanvas extends HTMLElement {
     }
 
     setState(state: ReadonlyState): void {
-        _.of(this).state = cloneState(state);
+        _.of(this).state = cloneDeep(state);
     }
 
     refresh(): void {
