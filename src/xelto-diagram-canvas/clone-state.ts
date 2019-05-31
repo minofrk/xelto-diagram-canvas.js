@@ -1,6 +1,6 @@
-import { State, Row } from '../types';
+import { ReadonlyState } from '@minofrk/msf-io-ts';
 
-export default function cloneState(state: State): State {
+export default function cloneState(state: ReadonlyState): ReadonlyState {
     return {
         sast: state.sast,
         arxe: {
@@ -23,6 +23,8 @@ export default function cloneState(state: State): State {
         korol: [...state.korol],
     };
 }
+
+type Row = ReadonlyState['ele'][number];
 
 function cloneRow([a, b, c, d, e, f, g]: Row): Row {
     return <const>[a, b, c, d, e, f, g];

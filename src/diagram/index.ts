@@ -1,8 +1,9 @@
-import { State, RenderingOptions, Printer } from '../types';
+import { RenderingOptions, Printer } from '../types';
 import * as backgroundPicture from './background-picture';
 import * as statePicture from './state-picture';
+import { ReadonlyState } from '@minofrk/msf-io-ts';
 
-export function printDiagram(state: State, options: RenderingOptions): Printer {
+export function printDiagram(state: ReadonlyState, options: RenderingOptions): Printer {
     return paper => {
         for (const print of backgroundPicture.print(options)) {
             print(paper);

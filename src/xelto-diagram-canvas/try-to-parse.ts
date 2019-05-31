@@ -1,4 +1,4 @@
-import { State } from '../types';
+import { State } from '@minofrk/msf-io-ts';
 
 export default function tryToParse(maybeJson: null | string): void | State {
     if (!maybeJson) return;

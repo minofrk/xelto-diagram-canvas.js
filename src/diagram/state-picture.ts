@@ -1,10 +1,11 @@
-import { Printer, RenderingOptions, State } from '../types';
+import { Printer, RenderingOptions } from '../types';
 import iterateAllCells from './iterate-all-cells';
 import * as piecePicture from './piece-picture';
 import * as captivePicture from './captive-picture';
 import * as playerPrinter from './player-picture';
+import { ReadonlyState } from '@minofrk/msf-io-ts';
 
-export function * print(state: State, options: RenderingOptions): IterableIterator<Printer> {
+export function * print(state: ReadonlyState, options: RenderingOptions): IterableIterator<Printer> {
     // 盤面
     for (const { leftTop, index } of iterateAllCells()) {
         const name = options.reversed?

@@ -1,7 +1,8 @@
-import { Printer, Captives } from '../../types';
+import { Printer } from '../../types';
 import { iterateUpperCaptiveLeftTops, iterateLowerCaptiveLeftTops, txifolSize } from './areas';
 import * as piecePicture from '../piece-picture';
 import printCaptives from './print-captives';
+import { Captives } from './types';
 
 export function * printUpper(captives: Captives): IterableIterator<Printer> {
     yield * printCaptives(captives, iterateUpperCaptiveLeftTops);

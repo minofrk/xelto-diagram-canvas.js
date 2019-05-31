@@ -44,7 +44,7 @@
     "webpack-dev-server": "^3.4.1"
   },
   "dependencies": {
-    "io-ts": "^1.8.6",
+    "@minofrk/msf-io-ts": "0.0.0",
     "lit-html": "^1.1.0"
   }
 }

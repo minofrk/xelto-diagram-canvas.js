@@ -1,6 +1,3 @@
-export * from './piece';
-export * from './state';
-
 export type Printer = (paper: PrintingPaper) => unknown;
 
 export interface Point {

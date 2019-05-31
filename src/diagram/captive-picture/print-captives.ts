@@ -1,5 +1,5 @@
-import { Printer, Captives } from '../../types';
-import { CaptiveLeftTops } from './types';
+import { Printer } from '../../types';
+import { CaptiveLeftTops, Captives } from './types';
 import * as piecePicture from '../piece-picture';
 import { txifolSize } from './areas';
 

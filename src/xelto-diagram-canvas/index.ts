@@ -1,14 +1,15 @@
 import PrivateMap from './private-map';
-import { State, RenderingOptions } from '../types';
+import { RenderingOptions } from '../types';
 import cloneState from './clone-state';
 import { printDiagram, printErrorDiagram } from '../diagram';
 import defaultFontFamily from '../default-font-family';
 import renderTemplate from './render-template';
 import tryToParse from './try-to-parse';
+import { ReadonlyState } from '@minofrk/msf-io-ts';
 
 const _ = new PrivateMap<XeltoDiagramCanvas, {
     canvas: HTMLCanvasElement;
-    state?: State;
+    state?: ReadonlyState;
 }>();
 
 export default class XeltoDiagramCanvas extends HTMLElement {
@@ -44,7 +45,7 @@ export default class XeltoDiagramCanvas extends HTMLElement {
         }
     }
 
-    setState(state: State): void {
+    setState(state: ReadonlyState): void {
         _.of(this).state = cloneState(state);
     }
 
