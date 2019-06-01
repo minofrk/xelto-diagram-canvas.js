@@ -3,7 +3,7 @@ import { fillRectangle, strokeRectangle } from '../brushes';
 import * as label from './label-picture';
 import iterateAllCells from './iterate-all-cells';
 
-export function * print(options: RenderingOptions): IterableIterator<Printer> {
+export function* print(options: RenderingOptions): IterableIterator<Printer> {
     // 白紙化
     yield fillRectangle({
         color: '#fff',
@@ -15,11 +15,11 @@ export function * print(options: RenderingOptions): IterableIterator<Printer> {
     });
 
     // 座標
-    yield * label.print(options);
+    yield* label.print(options);
 
     // マス
     for (const { leftTop, index } of iterateAllCells()) {
-        if (index.x + index.y & 1) continue;
+        if ((index.x + index.y) & 1) continue;
 
         yield fillRectangle({
             color: '#eaeaea',
@@ -42,14 +42,15 @@ export function * print(options: RenderingOptions): IterableIterator<Printer> {
     });
 
     // 張っている駒の枠
-    const printFrame = (leftTop: Point) => strokeRectangle({
-        color: '#000',
-        rotate: 0,
-        virtualArea: {
-            leftTop,
-            size: { x: 2, y: 2 },
-        },
-    });
+    const printFrame = (leftTop: Point): Printer =>
+        strokeRectangle({
+            color: '#000',
+            rotate: 0,
+            virtualArea: {
+                leftTop,
+                size: { x: 2, y: 2 },
+            },
+        });
 
     yield printFrame({ x: 2, y: 1 });
     yield printFrame({ x: 20, y: 13 });

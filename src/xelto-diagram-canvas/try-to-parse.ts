@@ -6,6 +6,7 @@ export default function tryToParse(maybeJson: null | string): void | State {
     try {
         const maybeState = JSON.parse(maybeJson);
         if (State.is(maybeState)) return maybeState;
-    } catch(e) {
+    } catch (e) {
+        return;
     }
 }

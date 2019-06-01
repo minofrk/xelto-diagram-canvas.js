@@ -5,12 +5,15 @@ import { printDiagram, printErrorDiagram } from '../diagram';
 import defaultFontFamily from '../default-font-family';
 import renderTemplate from './render-template';
 import tryToParse from './try-to-parse';
-import { ReadonlyState } from '@minofrk/msf-io-ts';
+import { ReadonlyState, State } from '@minofrk/msf-io-ts';
 
-const _ = new PrivateMap<XeltoDiagramCanvas, {
-    canvas: HTMLCanvasElement;
-    state?: ReadonlyState;
-}>();
+const _ = new PrivateMap<
+    XeltoDiagramCanvas,
+    {
+        canvas: HTMLCanvasElement;
+        state?: ReadonlyState;
+    }
+>();
 
 export default class XeltoDiagramCanvas extends HTMLElement {
     constructor() {
@@ -65,9 +68,9 @@ export default class XeltoDiagramCanvas extends HTMLElement {
             reversed: this.reversed,
         };
 
-        const printOn = state?
-            printDiagram(state, options):
-            printErrorDiagram(options);
+        const printOn = state
+            ? printDiagram(state, options)
+            : printErrorDiagram(options);
 
         printOn({
             canvasContext,

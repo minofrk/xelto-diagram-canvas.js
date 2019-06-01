@@ -31,6 +31,6 @@ export function floor({ x, y }: Point): Point {
 export function square(w: number): Point {
     return {
         x: w,
-        y: w
+        y: w,
     };
 }

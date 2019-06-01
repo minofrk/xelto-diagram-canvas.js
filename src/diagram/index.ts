@@ -3,8 +3,11 @@ import * as backgroundPicture from './background-picture';
 import * as statePicture from './state-picture';
 import { ReadonlyState } from '@minofrk/msf-io-ts';
 
-export function printDiagram(state: ReadonlyState, options: RenderingOptions): Printer {
-    return paper => {
+export function printDiagram(
+    state: ReadonlyState,
+    options: RenderingOptions,
+): Printer {
+    return (paper): void => {
         for (const print of backgroundPicture.print(options)) {
             print(paper);
         }
@@ -15,7 +18,7 @@ export function printDiagram(state: ReadonlyState, options: RenderingOptions): P
 }
 
 export function printErrorDiagram(options: RenderingOptions): Printer {
-    return paper => {
+    return (paper): void => {
         for (const print of backgroundPicture.error(options)) {
             print(paper);
         }

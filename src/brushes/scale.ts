@@ -5,14 +5,14 @@ const source: Point = {
     y: 16,
 };
 
-export function getMaxScale(destination: Point): number {
-    const { x, y } = getScales(destination);
-    return Math.max(x, y);
-}
-
 export function getScales(destination: Point): Point {
     return {
         x: destination.x / source.x,
         y: destination.y / source.y,
     };
+}
+
+export function getMaxScale(destination: Point): number {
+    const { x, y } = getScales(destination);
+    return Math.max(x, y);
 }
