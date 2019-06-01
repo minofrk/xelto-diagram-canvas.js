@@ -27,7 +27,7 @@
     "build": "tsc && webpack",
     "clean": "rimraf lib umd coverage",
     "demo": "webpack-dev-server --hot --config demo/webpack.config.js",
-    "test": "jest",
+    "test": "tsc --noEmit && jest && npm run lint",
     "lint": "eslint src --ext ts"
   },
   "devDependencies": {
