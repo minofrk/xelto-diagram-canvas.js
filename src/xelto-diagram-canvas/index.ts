@@ -5,7 +5,7 @@ import { printDiagram, printErrorDiagram } from '../diagram';
 import defaultFontFamily from '../default-font-family';
 import renderTemplate from './render-template';
 import tryToParse from './try-to-parse';
-import { ReadonlyState, State } from '@minofrk/msf-io-ts';
+import { ReadonlyState } from '@minofrk/msf-io-ts';
 
 const _ = new PrivateMap<
     XeltoDiagramCanvas,
