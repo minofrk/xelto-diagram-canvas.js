@@ -28,17 +28,10 @@
     /* Module Resolution Options */
     "moduleResolution": "node",
     "types": [
-      "jest"
     ],
-    "esModuleInterop": true,
-
-    /* Source Map Options */
-    "inlineSources": true
+    "esModuleInterop": true
   },
   "include": [
     "src/**/*.ts",
-  ],
-  "exclude": [
-    "src/**/*.test.ts",
   ]
 }

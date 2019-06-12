@@ -1,4 +1,4 @@
-import { getScales, getMaxScale } from './scale';
+import { getScales, getMaxScale } from '../../src/brushes/scale';
 
 test('getScales', (): void => {
     expect(getScales({ x: 360, y: 240 })).toEqual({ x: 15, y: 15 });

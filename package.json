@@ -20,7 +20,8 @@
   "author": "古城みの <minofrk@gmail.com>",
   "files": [
     "umd",
-    "lib"
+    "lib",
+    "src"
   ],
   "main": "lib/index.js",
   "scripts": {
@@ -28,7 +29,7 @@
     "clean": "rimraf lib umd coverage",
     "demo": "webpack-dev-server --hot --config demo/webpack.config.js",
     "test": "tsc --noEmit && jest && npm run lint",
-    "lint": "eslint src --ext ts"
+    "lint": "eslint src test --ext ts"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
