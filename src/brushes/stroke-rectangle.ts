@@ -1,20 +1,35 @@
-import { Printer, LeftTopAlignedArea, CenterAlignedArea } from '../types';
-import { plus, minus, times, square, floor } from '../point-ops';
-import { getMaxScale } from './scale';
+import {
+    Printer,
+    LeftTopAlignedArea,
+    CenterAlignedArea,
+    Point,
+} from '../types';
+import {
+    plus,
+    minus,
+    times,
+    square,
+    floor,
+    elementWiseTimes,
+} from '../point-ops';
+import { getScales } from './scale';
 import setCoordinateSystem from './set-coordinate-system';
 
 function getPhysicalValues(
     virtualArea: LeftTopAlignedArea,
-    physicalScale: number,
+    physicalScale: Point,
 ): LeftTopAlignedArea & CenterAlignedArea & { lineWidth: number } {
-    const rawSize = times(virtualArea.size, physicalScale);
+    const rawSize = elementWiseTimes(virtualArea.size, physicalScale);
     const rawHalfWidth = times(minus(rawSize, square(1)), 1 / 2);
     const rawCenter = plus(
-        times(virtualArea.leftTop, physicalScale),
+        elementWiseTimes(virtualArea.leftTop, physicalScale),
         rawHalfWidth,
     );
 
-    const lineWidth = Math.max(1, Math.ceil(physicalScale / 15));
+    const lineWidth = Math.max(
+        1,
+        Math.ceil(Math.max(physicalScale.x, physicalScale.y) / 15),
+    );
     const gapSize = square(Math.floor(lineWidth - 1) / 2);
 
     const intLeftTop = plus(
@@ -37,27 +52,21 @@ function getPhysicalValues(
 
 export function strokeRectangle({
     color,
-    rotate,
     virtualArea,
 }: {
     color: string;
-    rotate: number;
     virtualArea: LeftTopAlignedArea;
 }): Printer {
     return ({ canvasContext, canvasSize }): void => {
-        const physicalScale = getMaxScale(canvasSize);
+        const physicalScale = getScales(canvasSize);
         const physical = getPhysicalValues(virtualArea, physicalScale);
 
         canvasContext.lineWidth = physical.lineWidth;
         canvasContext.strokeStyle = color;
 
-        setCoordinateSystem(
-            { canvasContext, canvasSize },
-            {
-                center: physical.center,
-                rotate,
-            },
-        );
+        setCoordinateSystem(canvasContext, {
+            center: physical.center,
+        });
 
         canvasContext.strokeRect(
             physical.leftTop.x,

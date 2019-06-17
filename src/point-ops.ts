@@ -21,6 +21,13 @@ export function times({ x, y }: Point, k: number): Point {
     };
 }
 
+export function elementWiseTimes(p: Point, q: Point): Point {
+    return {
+        x: p.x * q.x,
+        y: p.y * q.y,
+    };
+}
+
 export function floor({ x, y }: Point): Point {
     return {
         x: Math.floor(x),

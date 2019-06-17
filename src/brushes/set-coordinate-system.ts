@@ -1,25 +1,17 @@
 import { Point } from '../types';
-import { getScales, getMaxScale } from './scale';
-import { times } from '../point-ops';
 
 export default function setCoordinateSystem(
-    {
-        canvasContext,
-        canvasSize,
-    }: {
-        canvasContext: CanvasRenderingContext2D;
-        canvasSize: Point;
-    },
+    canvasContext: CanvasRenderingContext2D,
     {
         center,
-        rotate,
+        rotate = 0,
+        scale = { x: 1, y: 1 },
     }: {
         center: Point;
-        rotate: number;
+        rotate?: number;
+        scale?: Point;
     },
 ): void {
-    const scale = times(getScales(canvasSize), 1 / getMaxScale(canvasSize));
-
     canvasContext.setTransform(scale.x, 0, 0, scale.y, 0, 0);
 
     const cos = Math.cos(rotate);

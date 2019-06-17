@@ -1,9 +1,10 @@
 import { Printer, LeftTopAlignedArea } from '../types';
-import { getScales } from './scale';
+import { getScales, getMaxScale } from './scale';
 import setCoordinateSystem from './set-coordinate-system';
 import toPhysicalArea from './to-physical-area';
+import { square, times } from '../point-ops';
 
-export function fillRectangle({
+export function fillDiamond({
     color,
     virtualArea,
 }: {
@@ -11,13 +12,15 @@ export function fillRectangle({
     virtualArea: LeftTopAlignedArea;
 }): Printer {
     return ({ canvasContext, canvasSize }): void => {
-        const physicalScale = getScales(canvasSize);
-        const physicalArea = toPhysicalArea(virtualArea, physicalScale);
+        const physicalScale = getMaxScale(canvasSize);
+        const physicalArea = toPhysicalArea(virtualArea, square(physicalScale));
 
         canvasContext.fillStyle = color;
 
         setCoordinateSystem(canvasContext, {
             center: physicalArea.center,
+            rotate: Math.PI / 4,
+            scale: times(getScales(canvasSize), 1 / physicalScale),
         });
 
         canvasContext.fillRect(

@@ -1,28 +1,7 @@
-import { Printer, LeftTopAlignedArea, CenterAlignedArea } from '../types';
+import { Printer, LeftTopAlignedArea } from '../types';
 import { plus, minus, times, square } from '../point-ops';
-import { getMaxScale } from './scale';
+import { getMaxScale, getScales } from './scale';
 import setCoordinateSystem from './set-coordinate-system';
-
-function toCenterAlignedPhysicalArea(
-    { leftTop, size }: LeftTopAlignedArea,
-    physicalScale: number,
-): CenterAlignedArea {
-    const physicalSize = times(size, physicalScale);
-
-    return {
-        center: plus(
-            times(
-                plus(leftTop, {
-                    x: 0,
-                    y: 0.1,
-                }),
-                physicalScale,
-            ),
-            times(minus(physicalSize, square(1)), 1 / 2),
-        ),
-        size: physicalSize,
-    };
-}
 
 export function fillText({
     value,
@@ -44,9 +23,17 @@ export function fillText({
 
         const physicalScale = getMaxScale(canvasSize);
         const physicalFontSize = virtualFontSize * physicalScale;
-        const physicalArea = toCenterAlignedPhysicalArea(
-            virtualArea,
-            physicalScale,
+
+        const physicalSize = times(virtualArea.size, physicalScale);
+        const physicalCenter = plus(
+            times(
+                plus(virtualArea.leftTop, {
+                    x: 0,
+                    y: 0.1,
+                }),
+                physicalScale,
+            ),
+            times(minus(physicalSize, square(1)), 1 / 2),
         );
 
         canvasContext.fillStyle = color;
@@ -55,14 +42,12 @@ export function fillText({
         canvasContext.font = `${physicalFontSize}px ${fontFamily ||
             paper.fontFamily}`;
 
-        setCoordinateSystem(
-            { canvasContext, canvasSize },
-            {
-                center: physicalArea.center,
-                rotate,
-            },
-        );
+        setCoordinateSystem(canvasContext, {
+            center: physicalCenter,
+            rotate,
+            scale: times(getScales(canvasSize), 1 / physicalScale),
+        });
 
-        canvasContext.fillText(value, 0, 0, physicalArea.size.x * 0.9);
+        canvasContext.fillText(value, 0, 0, physicalSize.x * 0.9);
     };
 }

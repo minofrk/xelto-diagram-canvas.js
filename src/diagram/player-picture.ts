@@ -1,5 +1,5 @@
 import { Printer, RenderingOptions, Point } from '../types';
-import { fillRectangle } from '../brushes';
+import { fillDiamond } from '../brushes';
 import { square, plus } from '../point-ops';
 import * as piecePicture from './piece-picture';
 
@@ -10,9 +10,8 @@ const upperPlayerLeftTop: Point = { x: 0, y: 1 };
 const lowerPlayerLeftTop: Point = { x: 22, y: 13 };
 
 const printDiamond = (leftTop: Point): Printer =>
-    fillRectangle({
+    fillDiamond({
         color: '#000',
-        rotate: Math.PI / 4,
         virtualArea: {
             leftTop: plus(leftTop, gap),
             size: square(width),

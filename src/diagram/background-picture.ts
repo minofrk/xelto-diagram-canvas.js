@@ -7,7 +7,6 @@ export function* print(options: RenderingOptions): IterableIterator<Printer> {
     // 白紙化
     yield fillRectangle({
         color: '#fff',
-        rotate: 0,
         virtualArea: {
             leftTop: { x: 0, y: 0 },
             size: { x: 24, y: 16 },
@@ -23,7 +22,6 @@ export function* print(options: RenderingOptions): IterableIterator<Printer> {
 
         yield fillRectangle({
             color: '#eaeaea',
-            rotate: 0,
             virtualArea: {
                 leftTop,
                 size: { x: 2, y: 2 },
@@ -34,7 +32,6 @@ export function* print(options: RenderingOptions): IterableIterator<Printer> {
     // 盤の枠
     yield strokeRectangle({
         color: '#000',
-        rotate: 0,
         virtualArea: {
             leftTop: { x: 5, y: 1 },
             size: { x: 14, y: 14 },
@@ -45,7 +42,6 @@ export function* print(options: RenderingOptions): IterableIterator<Printer> {
     const printFrame = (leftTop: Point): Printer =>
         strokeRectangle({
             color: '#000',
-            rotate: 0,
             virtualArea: {
                 leftTop,
                 size: { x: 2, y: 2 },
