@@ -1,9 +1,6 @@
-import {
-    Printer,
-    LeftTopAlignedArea,
-    CenterAlignedArea,
-    Point,
-} from '../types';
+import { LeftTopAlignedArea, Point, CenterAlignedArea } from '../../types';
+import { getScales } from '../scale';
+
 import {
     plus,
     minus,
@@ -11,14 +8,14 @@ import {
     square,
     floor,
     elementWiseTimes,
-} from '../point-ops';
-import { getScales } from './scale';
-import setCoordinateSystem from './set-coordinate-system';
+} from '../../point-ops';
 
-function getPhysicalValues(
+export default function getPhysicalValues(
     virtualArea: LeftTopAlignedArea,
-    physicalScale: Point,
+    canvasSize: Point,
 ): LeftTopAlignedArea & CenterAlignedArea & { lineWidth: number } {
+    const physicalScale = getScales(canvasSize);
+
     const rawSize = elementWiseTimes(virtualArea.size, physicalScale);
     const rawHalfWidth = times(minus(rawSize, square(1)), 1 / 2);
     const rawCenter = plus(
@@ -47,32 +44,5 @@ function getPhysicalValues(
         center: times(plus(intLeftTop, intRightBottom), 1 / 2),
         size: intSize,
         lineWidth,
-    };
-}
-
-export function strokeRectangle({
-    color,
-    virtualArea,
-}: {
-    color: string;
-    virtualArea: LeftTopAlignedArea;
-}): Printer {
-    return ({ canvasContext, canvasSize }): void => {
-        const physicalScale = getScales(canvasSize);
-        const physical = getPhysicalValues(virtualArea, physicalScale);
-
-        canvasContext.lineWidth = physical.lineWidth;
-        canvasContext.strokeStyle = color;
-
-        setCoordinateSystem(canvasContext, {
-            center: physical.center,
-        });
-
-        canvasContext.strokeRect(
-            physical.leftTop.x,
-            physical.leftTop.y,
-            physical.size.x,
-            physical.size.y,
-        );
     };
 }

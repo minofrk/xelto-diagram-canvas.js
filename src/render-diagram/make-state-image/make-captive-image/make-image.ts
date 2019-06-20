@@ -1,17 +1,17 @@
-import { Printer } from '../../types';
-import { CaptiveLeftTops, Captives } from './types';
-import * as piecePicture from '../piece-picture';
+import { Image } from '../../../types';
+import { LeftTopOfCaptive, Captive } from './types';
+import { makePieceImage } from '../make-piece-image';
 import { txifolSize } from './areas';
 
-export default function* printCaptives(
-    { txifol, evol }: Captives,
-    leftTops: CaptiveLeftTops,
-): IterableIterator<Printer> {
+export default function* makeImage(
+    { txifol, evol }: Captive,
+    leftTops: LeftTopOfCaptive,
+): Image {
     // 持ち駒
     for (const { x, y, i } of leftTops.txifol()) {
         if (!txifol[i]) continue;
 
-        yield* piecePicture.print(
+        yield* makePieceImage(
             txifol[i],
             {
                 leftTop: { x, y },
@@ -24,7 +24,7 @@ export default function* printCaptives(
     // 張っている駒
     if (!evol) return;
 
-    yield* piecePicture.print(
+    yield* makePieceImage(
         evol,
         {
             leftTop: leftTops.evol,

@@ -1,4 +1,4 @@
-import { LeftTopAlignedArea, CenterAlignedArea, Point } from '../types';
+import { LeftTopAlignedArea, CenterAlignedArea, Point } from '../../types';
 
 import {
     plus,
@@ -7,7 +7,7 @@ import {
     square,
     floor,
     elementWiseTimes,
-} from '../point-ops';
+} from '../../point-ops';
 
 export default function toPhysicalArea(
     virtualArea: LeftTopAlignedArea,

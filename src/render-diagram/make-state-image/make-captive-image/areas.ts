@@ -1,6 +1,5 @@
-import { Point } from '../../types';
-import { IndexedPoint } from '../types';
-import { CaptiveLeftTops } from './types';
+import { Point } from '../../../types';
+import { LeftTopOfCaptive, IndexedPoint } from './types';
 
 function* iterateUpperTxifolLeftTops(): IterableIterator<IndexedPoint> {
     for (let i = 0; i < 7; i++) {
@@ -36,12 +35,12 @@ function* iterateLowerTxifolLeftTops(): IterableIterator<IndexedPoint> {
     }
 }
 
-export const iterateUpperCaptiveLeftTops: CaptiveLeftTops = {
+export const iterateUpperCaptiveLeftTops: LeftTopOfCaptive = {
     txifol: iterateUpperTxifolLeftTops,
     evol: { x: 2, y: 1 },
 };
 
-export const iterateLowerCaptiveLeftTops: CaptiveLeftTops = {
+export const iterateLowerCaptiveLeftTops: LeftTopOfCaptive = {
     txifol: iterateLowerTxifolLeftTops,
     evol: { x: 20, y: 13 },
 };

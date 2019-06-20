@@ -1,13 +1,13 @@
-import { Printer, LeftTopAlignedArea } from '../types';
-import { fillText } from '../brushes';
-import defaultFontFamily from '../default-font-family';
+import { Image, LeftTopAlignedArea } from '../../types';
+import { fillText } from '../../brushes';
+import defaultFontFamily from '../../default-font-family';
 import { Piece, Teems, Arxe } from '@minofrk/msf-io-ts';
 
-export function* print(
+export function* makePieceImage(
     name: Piece,
     virtualArea: LeftTopAlignedArea,
     rotate: number,
-): IterableIterator<Printer> {
+): Image {
     yield fillText({
         value: name,
         color: Teems.is(name) ? '#000' : Arxe.is(name) ? '#55d' : '#d55',
@@ -17,9 +17,7 @@ export function* print(
     });
 }
 
-export function* error(
-    virtualArea: LeftTopAlignedArea,
-): IterableIterator<Printer> {
+export function* makeErrorPieceImage(virtualArea: LeftTopAlignedArea): Image {
     yield fillText({
         value: '###',
         color: '#f00',

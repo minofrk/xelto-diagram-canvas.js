@@ -1,7 +1,7 @@
 import PrivateMap from './private-map';
 import { RenderingOptions } from '../types';
 import cloneDeep from 'lodash.clonedeep';
-import { printDiagram, printErrorDiagram } from '../diagram';
+import { renderDiagram, renderErrorDiagram } from '../render-diagram';
 import defaultFontFamily from '../default-font-family';
 import renderTemplate from './render-template';
 import tryToParse from './try-to-parse';
@@ -58,27 +58,15 @@ export default class XeltoDiagramCanvas extends HTMLElement {
         canvas.width = Math.ceil(canvas.clientWidth * devicePixelRatio);
         canvas.height = Math.ceil(canvas.clientHeight * devicePixelRatio);
 
-        const canvasContext = canvas.getContext('2d');
-
-        if (canvasContext === null) {
-            throw new Error();
-        }
-
         const options: RenderingOptions = {
             reversed: this.reversed,
+            fontFamily: getComputedStyle(this).fontFamily || defaultFontFamily,
         };
 
-        const printOn = state
-            ? printDiagram(state, options)
-            : printErrorDiagram(options);
-
-        printOn({
-            canvasContext,
-            canvasSize: {
-                x: canvas.width,
-                y: canvas.height,
-            },
-            fontFamily: getComputedStyle(this).fontFamily || defaultFontFamily,
-        });
+        if (state) {
+            renderDiagram(state, canvas, options);
+        } else {
+            renderErrorDiagram(canvas, options);
+        }
     }
 }

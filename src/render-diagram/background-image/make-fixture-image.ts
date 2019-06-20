@@ -1,9 +1,8 @@
-import { Printer, RenderingOptions, Point } from '../types';
-import { fillRectangle, strokeRectangle } from '../brushes';
-import * as label from './label-picture';
-import iterateAllCells from './iterate-all-cells';
+import { Image, Point, Brush } from '../../types';
+import { fillRectangle, strokeRectangle } from '../../brushes';
+import iterateAllCells from '../iterate-all-cells';
 
-export function* print(options: RenderingOptions): IterableIterator<Printer> {
+export default function* makeFixtureImage(): Image {
     // 白紙化
     yield fillRectangle({
         color: '#fff',
@@ -12,9 +11,6 @@ export function* print(options: RenderingOptions): IterableIterator<Printer> {
             size: { x: 24, y: 16 },
         },
     });
-
-    // 座標
-    yield* label.print(options);
 
     // マス
     for (const { leftTop, index } of iterateAllCells()) {
@@ -39,7 +35,7 @@ export function* print(options: RenderingOptions): IterableIterator<Printer> {
     });
 
     // 張っている駒の枠
-    const printFrame = (leftTop: Point): Printer =>
+    const printFrame = (leftTop: Point): Brush =>
         strokeRectangle({
             color: '#000',
             virtualArea: {
@@ -51,5 +47,3 @@ export function* print(options: RenderingOptions): IterableIterator<Printer> {
     yield printFrame({ x: 2, y: 1 });
     yield printFrame({ x: 20, y: 13 });
 }
-
-export const error = print;
