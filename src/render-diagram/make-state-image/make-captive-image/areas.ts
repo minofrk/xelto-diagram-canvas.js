@@ -5,14 +5,14 @@ function* iterateUpperTxifolLeftTops(): IterableIterator<IndexedPoint> {
     for (let i = 0; i < 7; i++) {
         yield {
             x: 2,
-            y: 3 + ((i * 2) / 7) * 6,
+            y: 3 + (12 / 7) * i,
             i,
         };
     }
     for (let i = 0; i < 7; i++) {
         yield {
             x: 0,
-            y: 3 + ((i * 2) / 7) * 6,
+            y: 3 + (12 / 7) * i,
             i: i + 7,
         };
     }
@@ -22,14 +22,14 @@ function* iterateLowerTxifolLeftTops(): IterableIterator<IndexedPoint> {
     for (let i = 0; i < 7; i++) {
         yield {
             x: 20,
-            y: 11 - ((i * 2) / 7) * 6,
+            y: 13 - (12 / 7) * (i + 1),
             i,
         };
     }
     for (let i = 0; i < 7; i++) {
         yield {
             x: 22,
-            y: 11 - ((i * 2) / 7) * 6,
+            y: 13 - (12 / 7) * (i + 1),
             i: i + 7,
         };
     }
