@@ -5,7 +5,7 @@ import renderImage from './render-image';
 import backgroundImage from './background-image';
 import { makeStateImage, makeErrorStateImage } from './make-state-image';
 
-const errorStateImage = makeErrorStateImage();
+const errorStateImage = [...makeErrorStateImage()];
 
 export function renderDiagram(
     state: ReadonlyState,
