@@ -24,7 +24,7 @@ export function fillText({
 
         const physical = getPhysicalValues(
             { virtualArea, virtualFontSize },
-            { canvasSize, reversed: dest.options.reversed },
+            canvasSize,
         );
 
         canvasContext.fillStyle = color;
