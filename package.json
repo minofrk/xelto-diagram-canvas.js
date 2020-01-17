@@ -55,7 +55,7 @@
   "dependencies": {
     "@minofrk/msf-io-ts": "0.2.0",
     "fp-ts": "^2.4.1",
-    "io-ts": "^2.0.4",
+    "io-ts": "^2.0.5",
     "lit-html": "^1.1.2",
     "lodash.clonedeep": "^4.5.0"
   }
