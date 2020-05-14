@@ -30,8 +30,9 @@ export function fillText({
         canvasContext.fillStyle = color;
         canvasContext.textAlign = 'center';
         canvasContext.textBaseline = 'middle';
-        canvasContext.font = `${physical.fontSize}px ${fontFamily ||
-            dest.options.fontFamily}`;
+        canvasContext.font = `${physical.fontSize}px ${
+            fontFamily || dest.options.fontFamily
+        }`;
 
         setCoordinateSystem(canvasContext, {
             center: dest.options.reversed
