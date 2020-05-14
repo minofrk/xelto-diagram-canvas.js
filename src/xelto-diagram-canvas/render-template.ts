@@ -19,9 +19,6 @@ const template = html`
     <canvas></canvas>
 `;
 
-export default function renderTemplate(
-    shadow: ShadowRoot,
-    scopeName: string,
-): void {
+export default function renderTemplate(shadow: ShadowRoot, scopeName: string): void {
     return render(template, shadow, { scopeName });
 }

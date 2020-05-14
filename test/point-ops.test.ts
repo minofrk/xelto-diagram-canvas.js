@@ -1,11 +1,4 @@
-import {
-    plus,
-    minus,
-    times,
-    elementWiseTimes,
-    floor,
-    square,
-} from '../src/point-ops';
+import { plus, minus, times, elementWiseTimes, floor, square } from '../src/point-ops';
 
 test('plus', (): void => {
     expect(plus({ x: 1, y: 2 }, { x: 6, y: 9 })).toEqual({ x: 7, y: 11 });

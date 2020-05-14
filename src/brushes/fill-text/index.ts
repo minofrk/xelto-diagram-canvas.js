@@ -22,22 +22,15 @@ export function fillText({
     return (dest): void => {
         const { canvasContext, canvasSize } = dest;
 
-        const physical = getPhysicalValues(
-            { virtualArea, virtualFontSize },
-            canvasSize,
-        );
+        const physical = getPhysicalValues({ virtualArea, virtualFontSize }, canvasSize);
 
         canvasContext.fillStyle = color;
         canvasContext.textAlign = 'center';
         canvasContext.textBaseline = 'middle';
-        canvasContext.font = `${physical.fontSize}px ${
-            fontFamily || dest.options.fontFamily
-        }`;
+        canvasContext.font = `${physical.fontSize}px ${fontFamily || dest.options.fontFamily}`;
 
         setCoordinateSystem(canvasContext, {
-            center: dest.options.reversed
-                ? minus(canvasSize, physical.center)
-                : physical.center,
+            center: dest.options.reversed ? minus(canvasSize, physical.center) : physical.center,
             rotate,
             scale: times(getScales(canvasSize), 1 / physical.scale),
         });

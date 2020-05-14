@@ -4,11 +4,7 @@ import { makePieceImage, makeErrorPieceImage } from './make-piece-image';
 import { makePlayerImage, makeAllErrorPlayerImage } from './make-player-image';
 import { ReadonlyState } from '@minofrk/msf-io-ts';
 
-import {
-    makeUpperCaptiveImage,
-    makeLowerCaptiveImage,
-    makeAllErrorCaptiveImage,
-} from './make-captive-image';
+import { makeUpperCaptiveImage, makeLowerCaptiveImage, makeAllErrorCaptiveImage } from './make-captive-image';
 
 export function* makeStateImage(state: ReadonlyState): Image {
     // 盤面
@@ -17,9 +13,7 @@ export function* makeStateImage(state: ReadonlyState): Image {
 
         if (name === null) continue;
 
-        const rotate = state.korol.find((x): boolean => x === name)
-            ? Math.PI / 2
-            : 0;
+        const rotate = state.korol.find((x): boolean => x === name) ? Math.PI / 2 : 0;
 
         yield* makePieceImage(name, { leftTop, size: { x: 2, y: 2 } }, rotate);
     }

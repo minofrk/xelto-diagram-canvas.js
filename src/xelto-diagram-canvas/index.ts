@@ -45,12 +45,8 @@ export default class XeltoDiagramCanvas extends HTMLElement {
     }
 
     refresh(): void {
-        this.#canvas.width = Math.ceil(
-            this.#canvas.clientWidth * devicePixelRatio,
-        );
-        this.#canvas.height = Math.ceil(
-            this.#canvas.clientHeight * devicePixelRatio,
-        );
+        this.#canvas.width = Math.ceil(this.#canvas.clientWidth * devicePixelRatio);
+        this.#canvas.height = Math.ceil(this.#canvas.clientHeight * devicePixelRatio);
 
         const options: RenderingOptions = {
             reversed: this.reversed,

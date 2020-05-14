@@ -3,11 +3,7 @@ import makeImage from './make-image';
 import { Captive } from './types';
 import { makeErrorPieceImage } from '../make-piece-image';
 
-import {
-    iterateUpperCaptiveLeftTops,
-    iterateLowerCaptiveLeftTops,
-    txifolSize,
-} from './areas';
+import { iterateUpperCaptiveLeftTops, iterateLowerCaptiveLeftTops, txifolSize } from './areas';
 
 export function* makeUpperCaptiveImage(captives: Captive): Image {
     yield* makeImage(captives, iterateUpperCaptiveLeftTops);

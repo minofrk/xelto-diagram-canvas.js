@@ -17,10 +17,7 @@ export default function getPhysicalValues(
 
     return {
         size: physicalSize,
-        center: plus(
-            times(virtualArea.leftTop, physicalScale),
-            times(physicalSize, 1 / 2),
-        ),
+        center: plus(times(virtualArea.leftTop, physicalScale), times(physicalSize, 1 / 2)),
         scale: physicalScale,
         fontSize: virtualFontSize * physicalScale,
     };

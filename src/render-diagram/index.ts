@@ -16,10 +16,7 @@ export function renderDiagram(
     renderImage(dest, backgroundImage, makeStateImage(state));
 }
 
-export function renderErrorDiagram(
-    canvas: RenderableCanvas,
-    options: Partial<RenderingOptions> = {},
-): void {
+export function renderErrorDiagram(canvas: RenderableCanvas, options: Partial<RenderingOptions> = {}): void {
     const dest = createDestination(canvas, options);
     renderImage(dest, backgroundImage, errorStateImage);
 }

@@ -3,10 +3,7 @@ import { LeftTopOfCaptive, Captive } from './types';
 import { makePieceImage } from '../make-piece-image';
 import { txifolSize } from './areas';
 
-export default function* makeImage(
-    { txifol, evol }: Captive,
-    leftTops: LeftTopOfCaptive,
-): Image {
+export default function* makeImage({ txifol, evol }: Captive, leftTops: LeftTopOfCaptive): Image {
     // 持ち駒
     for (const { x, y, i } of leftTops.txifol()) {
         if (!txifol[i]) continue;
