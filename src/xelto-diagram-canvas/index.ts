@@ -1,4 +1,3 @@
-import PrivateMap from './private-map';
 import { RenderingOptions } from '../types';
 import cloneDeep from 'lodash.clonedeep';
 import { renderDiagram, renderErrorDiagram } from '../render-diagram';
@@ -7,15 +6,10 @@ import renderTemplate from './render-template';
 import tryToParse from './try-to-parse';
 import { ReadonlyState } from '@minofrk/msf-io-ts';
 
-const _ = new PrivateMap<
-    XeltoDiagramCanvas,
-    {
-        canvas: HTMLCanvasElement;
-        state?: ReadonlyState;
-    }
->();
-
 export default class XeltoDiagramCanvas extends HTMLElement {
+    readonly #canvas: HTMLCanvasElement;
+    #state?: ReadonlyState;
+
     constructor() {
         super();
 
@@ -27,9 +21,7 @@ export default class XeltoDiagramCanvas extends HTMLElement {
         const canvas = shadow.querySelector<HTMLCanvasElement>('canvas');
         if (!canvas) throw new Error();
 
-        _.init(this, {
-            canvas,
-        });
+        this.#canvas = canvas;
 
         if (maybeState) {
             this.setState(maybeState);
@@ -49,24 +41,26 @@ export default class XeltoDiagramCanvas extends HTMLElement {
     }
 
     setState(state: ReadonlyState): void {
-        _.of(this).state = cloneDeep(state);
+        this.#state = cloneDeep(state);
     }
 
     refresh(): void {
-        const { canvas, state } = _.of(this);
-
-        canvas.width = Math.ceil(canvas.clientWidth * devicePixelRatio);
-        canvas.height = Math.ceil(canvas.clientHeight * devicePixelRatio);
+        this.#canvas.width = Math.ceil(
+            this.#canvas.clientWidth * devicePixelRatio,
+        );
+        this.#canvas.height = Math.ceil(
+            this.#canvas.clientHeight * devicePixelRatio,
+        );
 
         const options: RenderingOptions = {
             reversed: this.reversed,
             fontFamily: getComputedStyle(this).fontFamily || defaultFontFamily,
         };
 
-        if (state) {
-            renderDiagram(state, canvas, options);
+        if (this.#state) {
+            renderDiagram(this.#state, this.#canvas, options);
         } else {
-            renderErrorDiagram(canvas, options);
+            renderErrorDiagram(this.#canvas, options);
         }
     }
 }
