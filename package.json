@@ -40,7 +40,7 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^26.6.3",
-    "license-webpack-plugin": "^2.3.18",
+    "license-webpack-plugin": "^2.3.19",
     "prettier": "^2.3.0",
     "rimraf": "^3.0.2",
     "source-map-loader": "^0.2.4",
